@@ -39,7 +39,7 @@ module golay_err_gen (
     assign o_err = caso1 ? {12'b0, i_syn} :
                    caso2 ? {one_hot(i_idx_syn), i_res_syn} :
                    caso3 ? {i_q, 12'b0} :
-                   caso4 ? {one_hot(i_idx_q), i_res_q} :
+                   caso4 ? {i_res_q, one_hot(i_idx_q)} :
                    24'b0;
 
 endmodule
