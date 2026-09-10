@@ -4,8 +4,8 @@ module golay_mult_b_exhaustivo_tb;
     integer i;
     integer errores;
 
-    golay_mult_b dut1 ( .i_vec(i_vec), .o_vec(o_vec1) );
-    golay_mult_b dut2 ( .i_vec(o_vec1), .o_vec(o_vec2) );
+    golay_mult_b mult_inst1 ( .i_vec(i_vec), .o_vec(o_vec1) );
+    golay_mult_b mult_inst2 ( .i_vec(o_vec1), .o_vec(o_vec2) );
 
     initial begin
         errores = 0;

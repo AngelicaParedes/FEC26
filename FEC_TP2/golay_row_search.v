@@ -53,7 +53,7 @@ module golay_row_search (
             peso = cand [0]+cand [1]+cand [2]+cand [3]+cand [4]+cand [5]+cand [6]+cand [7]+cand [8]+cand [9]+cand [10]+cand [11]; // Calcular el peso del candidato
 
             if (!found_r &&peso <= 2) begin
-                found_r = 1'b1; // Se encontró un candidato válido
+                found_r = 1'b1; // Se encontro un candidato válido
                 idx_r = i[3:0]; // Guardar el índice de la fila encontrada
                 res_r = cand; // Guardar el resultado del candidato
             end

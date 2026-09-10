@@ -1,8 +1,10 @@
-module golay_syndrome_tb;
-    reg [23:0] i_rx;
-    wire [11:0] o_syn;
+//Calcula el sindrome de la palabra de codigo recibida (24 bits)
 
-    golay_syndrome dut (
+module golay_syndrome_tb;
+    reg [23:0] i_rx; //Palabra recibida
+    wire [11:0] o_syn; //Sindrome resultante
+
+    golay_syndrome syn_inst (
         .i_rx(i_rx),
         .o_syn(o_syn)
     );

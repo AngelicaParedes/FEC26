@@ -2,7 +2,7 @@ module golay_mult_b_tb;
     reg [11:0] i_vec;
     wire [11:0] o_vec;
 
-    golay_mult_b dut (
+    golay_mult_b mult_inst (
         .i_vec(i_vec),
         .o_vec(o_vec)
     );
@@ -10,10 +10,10 @@ module golay_mult_b_tb;
     initial begin
         
         i_vec = 12'hA5C; // Entrada de prueba
-        #10; // Esperar 10 unidades de tiempo para que se propague la señal o_vec
+        #10; 
        
-        $display("\ni_vec=%h  \no_vec=%h", i_vec, o_vec); //Hexadecimal
-        $display("\ni_vec=%b  \no_vec=%b\n", i_vec, o_vec); //Binario
-        $finish; // Terminar la simulación
+        $display("\ni_vec=%b  \ni_vec=%h", i_vec, i_vec); 
+        $display("\no_vec=%b  \no_vec=%h\n", o_vec, o_vec);
+        $finish; 
     end
 endmodule

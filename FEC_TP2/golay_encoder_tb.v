@@ -18,15 +18,16 @@ module golay_encoder_tb;
         i_rst = 1; // Activar reset
         i_msg = 12'h000; // Entrada de prueba
 
-        #10; // Esperar 10 unidades de tiempo
+        #10; 
 
         i_rst = 0; // Desactivar reset
         i_msg = 12'hA5C; // Cambiar la entrada de prueba
 
-        #10; // Esperar 10 unidades de tiempo para que se propague la señal o_cw
+        #10; 
 
-        //Resultado
-        $display("\nmensaje=%h \n\nPalabra de codigo=%h \n", i_msg, o_cw);
+        
+        $display("\nmensaje=%h \nmensaje (bin)=%b \n", i_msg, i_msg);
+        $display("\nPalabra de codigo=%h \nPalabra de codigo (bin)=%b \n", i_msg, o_cw);
         $finish; 
     end
 
