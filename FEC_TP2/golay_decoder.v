@@ -1,3 +1,6 @@
+/*Decodificador: recibe la palabra de codigo (24 bits) y devuelve el mensaje (12 bits) 
+y el vector de error (24 bits)*/
+
 module golay_decoder (
     input wire i_clk, i_rst,
     input wire [23:0] i_rx,
@@ -7,7 +10,7 @@ module golay_decoder (
     output reg o_uncorrectable
 );
 
-    // ===== ETAPA 1 =====
+    // -------------ETAPA 1: Sindrome -----------------
     wire [11:0] s_comb;
     golay_syndrome syn_inst ( .i_rx(i_rx), .o_syn(s_comb) );
 
@@ -24,7 +27,7 @@ module golay_decoder (
         end
     end
 
-    // ===== ETAPA 2 =====
+    // -------------ETAPA 2 -----------------
     wire [3:0] w_s_comb;
     popcount12 pop_s_inst ( .i_vec(s_e1), .o_weight(w_s_comb) );
 
@@ -75,7 +78,7 @@ module golay_decoder (
         end
     end
 
-    // ===== ETAPA 3 =====
+    // -------------ETAPA 3 -----------------
     wire [23:0] err_comb;
     wire uncorrectable_comb;
     golay_err_gen errgen_inst (

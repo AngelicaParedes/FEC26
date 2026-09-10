@@ -20,20 +20,20 @@ module golay_decoder_tb;
         #10;
         i_rst = 0;
 
-        i_rx = 24'hA5D9A6;   // r1
+        i_rx = 24'hA5D9A6;   // r1 del Ejercicio 3
         #30;
-        $display("r1=%h -> msg=%h corregido=%b no_corregible=%b (esperado msg=a5c)",
-                  i_rx, o_msg, o_corrected, o_uncorrectable);
+        $display("\nr1=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado msg=A5C)",
+                  i_rx, o_msg, o_msg, o_corrected, o_uncorrectable);
 
-        i_rx = 24'hA5F9A4;   // r2
+        i_rx = 24'hA5F9A4;   // r2 del Ejercicio 3
         #30;
-        $display("r2=%h -> msg=%h corregido=%b no_corregible=%b (esperado msg=a5c)",
-                  i_rx, o_msg, o_corrected, o_uncorrectable);
+        $display("\nr2=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado msg=A5C)",
+                  i_rx, o_msg, o_msg, o_corrected, o_uncorrectable);
 
-        i_rx = 24'hA5C9AA;   // r3
+        i_rx = 24'hA5C9AA;   // r3 del Ejercicio 3
         #30;
-        $display("r3=%h -> msg=%h corregido=%b no_corregible=%b (esperado no_corregible=1)",
-                  i_rx, o_msg, o_corrected, o_uncorrectable);
+        $display("\nr3=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado no_corregible=1)",
+                  i_rx, o_msg, o_msg, o_corrected, o_uncorrectable);
 
         $finish;
     end
