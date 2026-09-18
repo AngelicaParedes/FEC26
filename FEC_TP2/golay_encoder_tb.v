@@ -21,13 +21,13 @@ module golay_encoder_tb;
         #10; 
 
         i_rst = 0; // Desactivar reset
-        i_msg = 12'hA5C; // Cambiar la entrada de prueba
+        i_msg = 12'hA5C; // Mensaje del Ejercicio 1
 
         #10; 
 
         
         $display("\nmensaje=%h \nmensaje (bin)=%b \n", i_msg, i_msg);
-        $display("\nPalabra de codigo=%h \nPalabra de codigo (bin)=%b \n", i_msg, o_cw);
+        $display("\nPalabra de codigo=%h \nPalabra de codigo (bin)=%b \n", o_cw, o_cw);
         $finish; 
     end
 
