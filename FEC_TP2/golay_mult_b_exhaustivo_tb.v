@@ -14,13 +14,13 @@ module golay_mult_b_exhaustivo_tb;
             #1;
             if (o_vec2 !== i_vec) begin
                 errores = errores + 1;
-                $display("ERROR en i_vec=%h: doble mult_b dio %h", i_vec, o_vec2);
+                $display("\nERROR en i_vec=%h: doble mult_b dio %h\n", i_vec, o_vec2);
             end
         end
         if (errores == 0)
-            $display("OK: B^2=I verificado en hardware para las 4096 palabras");
+            $display("\nOK: B^2=I verificado en hardware para las 4096 palabras\n");
         else
-            $display("FALLA: %0d errores encontrados", errores);
+            $display("\nFALLA: %0d errores encontrados\n", errores);
         $finish;
     end
 endmodule
