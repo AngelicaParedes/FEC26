@@ -5,7 +5,7 @@ module golay_decoder_tb;
     wire [23:0] o_err;
     wire o_corrected, o_uncorrectable;
 
-    golay_decoder dut (
+    golay_decoder decoder_inst (
         .i_clk(i_clk), .i_rst(i_rst), .i_rx(i_rx),
         .o_msg(o_msg), .o_err(o_err),
         .o_corrected(o_corrected), .o_uncorrectable(o_uncorrectable)
@@ -22,17 +22,20 @@ module golay_decoder_tb;
 
         i_rx = 24'hA5D9A6;   // r1 del Ejercicio 3
         #30;
-        $display("\nr1=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado msg=A5C)",
+        $display("===========r1 del Ejercicio 3====================\n");
+        $display("r1=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado msg=A5C)\n",
                   i_rx, o_msg, o_msg, o_corrected, o_uncorrectable);
 
         i_rx = 24'hA5F9A4;   // r2 del Ejercicio 3
         #30;
-        $display("\nr2=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado msg=A5C)",
+        $display("===========r2 del Ejercicio 3====================\n");
+        $display("r2=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado msg=A5C)\n",
                   i_rx, o_msg, o_msg, o_corrected, o_uncorrectable);
 
         i_rx = 24'hA5C9AA;   // r3 del Ejercicio 3
         #30;
-        $display("\nr3=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado no_corregible=1)",
+        $display("===========r3 del Ejercicio 3====================\n");
+        $display("r3=%h -> msg=%h (%b) \ncorregido=%b \nno_corregible=%b (esperado no_corregible=1)\n",
                   i_rx, o_msg, o_msg, o_corrected, o_uncorrectable);
 
         $finish;

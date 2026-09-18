@@ -7,37 +7,46 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_000001CD6B965060 .scope module, "golay_correct_tb" "golay_correct_tb" 2 1;
+S_00000207CD218070 .scope module, "golay_correct_tb" "golay_correct_tb" 2 1;
  .timescale 0 0;
-v000001CD6B97BF10_0 .var "i_err", 23 0;
-v000001CD6B97BFB0_0 .var "i_rx", 23 0;
-L_000001CD6BB30088 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
-v000001CD6B974F90_0 .net "o_corrected", 0 0, L_000001CD6BB30088;  1 drivers
-v000001CD6B975030_0 .net "o_cw", 23 0, L_000001CD6B965740;  1 drivers
-v000001CD6B9750D0_0 .net "o_msg", 11 0, L_000001CD6B975E40;  1 drivers
-S_000001CD6B97BBA0 .scope module, "dut" "golay_correct" 2 7, 3 1 0, S_000001CD6B965060;
+v00000207CD21AE40_0 .var "i_err", 23 0;
+v00000207CD2197F0_0 .var "i_rx", 23 0;
+L_00000207CD4E0088 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+v00000207CD2761D0_0 .net "o_corrected", 0 0, L_00000207CD4E0088;  1 drivers
+v00000207CD275AF0_0 .net "o_cw", 23 0, L_00000207CD22F380;  1 drivers
+v00000207CD276130_0 .net "o_msg", 11 0, L_00000207CD276270;  1 drivers
+S_00000207CD219660 .scope module, "dut" "golay_correct" 2 7, 3 1 0, S_00000207CD218070;
  .timescale 0 0;
     .port_info 0 /INPUT 24 "i_rx";
     .port_info 1 /INPUT 24 "i_err";
     .port_info 2 /OUTPUT 24 "o_cw";
     .port_info 3 /OUTPUT 12 "o_msg";
     .port_info 4 /OUTPUT 1 "o_corrected";
-L_000001CD6B965740 .functor XOR 24, v000001CD6B97BFB0_0, v000001CD6B97BF10_0, C4<000000000000000000000000>, C4<000000000000000000000000>;
-v000001CD6B964570_0 .net "i_err", 23 0, v000001CD6B97BF10_0;  1 drivers
-v000001CD6B966060_0 .net "i_rx", 23 0, v000001CD6B97BFB0_0;  1 drivers
-v000001CD6B97BD30_0 .net "o_corrected", 0 0, L_000001CD6BB30088;  alias, 1 drivers
-v000001CD6B97BDD0_0 .net "o_cw", 23 0, L_000001CD6B965740;  alias, 1 drivers
-v000001CD6B97BE70_0 .net "o_msg", 11 0, L_000001CD6B975E40;  alias, 1 drivers
-L_000001CD6B975E40 .part L_000001CD6B965740, 12, 12;
-    .scope S_000001CD6B965060;
+L_00000207CD22F380 .functor XOR 24, v00000207CD2197F0_0, v00000207CD21AE40_0, C4<000000000000000000000000>, C4<000000000000000000000000>;
+v00000207CD218200_0 .net "i_err", 23 0, v00000207CD21AE40_0;  1 drivers
+v00000207CD22D200_0 .net "i_rx", 23 0, v00000207CD2197F0_0;  1 drivers
+v00000207CD217EA0_0 .net "o_corrected", 0 0, L_00000207CD4E0088;  alias, 1 drivers
+v00000207CD21AD00_0 .net "o_cw", 23 0, L_00000207CD22F380;  alias, 1 drivers
+v00000207CD21ADA0_0 .net "o_msg", 11 0, L_00000207CD276270;  alias, 1 drivers
+L_00000207CD276270 .part L_00000207CD22F380, 12, 12;
+    .scope S_00000207CD218070;
 T_0 ;
     %pushi/vec4 10869158, 0, 24;
-    %store/vec4 v000001CD6B97BFB0_0, 0, 24;
+    %store/vec4 v00000207CD2197F0_0, 0, 24;
     %pushi/vec4 4099, 0, 24;
-    %store/vec4 v000001CD6B97BF10_0, 0, 24;
+    %store/vec4 v00000207CD21AE40_0, 0, 24;
     %delay 10, 0;
-    %vpi_call 2 16 "$display", "cw=%h msg=%h (esperado cw=a5c9a5 msg=a5c)", v000001CD6B975030_0, v000001CD6B9750D0_0 {0 0 0};
-    %vpi_call 2 17 "$finish" {0 0 0};
+    %vpi_call 2 16 "$display", "===========r1 del Ejercicio 3====================\012" {0 0 0};
+    %vpi_call 2 17 "$display", "i_rx=%h \012cw=%h (Palabra de codigo) \012msg=%h (mensaje) \012(esperado cw=a5c9a5 msg=a5c)\012", v00000207CD2197F0_0, v00000207CD275AF0_0, v00000207CD276130_0 {0 0 0};
+    %delay 10, 0;
+    %pushi/vec4 10877348, 0, 24;
+    %store/vec4 v00000207CD2197F0_0, 0, 24;
+    %pushi/vec4 12289, 0, 24;
+    %store/vec4 v00000207CD21AE40_0, 0, 24;
+    %delay 10, 0;
+    %vpi_call 2 23 "$display", "===========r2 del Ejercicio 3====================\012" {0 0 0};
+    %vpi_call 2 24 "$display", "i_rx=%h \012cw=%h (Palabra de codigo) \012msg=%h (mensaje) \012(esperado cw=a5c9a5 msg=a5c)\012", v00000207CD2197F0_0, v00000207CD275AF0_0, v00000207CD276130_0 {0 0 0};
+    %vpi_call 2 26 "$finish" {0 0 0};
     %end;
     .thread T_0;
 # The file index is used to find the file name in the following table.

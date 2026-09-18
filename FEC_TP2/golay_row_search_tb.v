@@ -14,7 +14,12 @@ module golay_row_search_tb;
     initial begin
         i_vec = 12'hEAA; //sindrome de r1 del Ejercicio 3
         #10;
-        $display("\ni_vec=%h \no_found=%b  \no_idx=%d  \no_res=%h\n", i_vec, o_found, o_idx, o_res);
+        $display("\ni_vec=%h (%b) ->Sindrome de r1 \no_found=%b  \no_idx=%d  \no_res=%h\n", i_vec, i_vec, o_found, o_idx, o_res);
+        #10;
+
+        i_vec = 12'h1B2; //sindrome de r2 del Ejercicio 3
+        #10;
+        $display("\ni_vec=%h (%b) ->Sindrome de r2 \no_found=%b  \no_idx=%d  \no_res=%h\n", i_vec, i_vec, o_found, o_idx, o_res);
         
         $finish;
     end 
