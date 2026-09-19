@@ -1,3 +1,6 @@
+// Deinterleaver: el espejo exacto del anterior, con retardo
+// (LAMBDA-1-i)*J por rama, para que la suma con el interleaver de
+// siempre el mismo retardo total.
 module conv_deinterleaver #(
     parameter LAMBDA = 24,
     parameter J = 1
@@ -25,7 +28,8 @@ module conv_deinterleaver #(
     genvar gi;
     generate
         for (gi = 0; gi < LAMBDA; gi = gi + 1) begin : rama
-            localparam DEPTH = (LAMBDA - 1 - gi) * J;   // <-- unica diferencia con el interleaver
+            // UNICA diferencia con el interleaver: la profundidad esta invertida
+            localparam DEPTH = (LAMBDA - 1 - gi) * J;
             if (DEPTH == 0) begin : sin_registro
                 assign delay_out[gi] = i_bit;
             end else begin : con_registro
@@ -34,8 +38,12 @@ module conv_deinterleaver #(
                 always @(posedge i_clk) begin
                     if (i_rst)
                         sr <= {DEPTH{1'b0}};
-                    else if (sel)
-                        sr <= {sr[DEPTH-2:0], i_bit};
+                    else if (sel) begin 
+                        if (DEPTH ==1)
+                            sr<= i_bit;
+                        else                // solo se mueve en su turno
+                            sr <= {sr[DEPTH-2:0], i_bit};
+                    end
                 end
                 assign delay_out[gi] = sr[DEPTH-1];
             end
